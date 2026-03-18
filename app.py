@@ -268,7 +268,7 @@ def smart_resolve_ticker(raw):
             continue
         try:
             df_try = yf.Ticker(ticker_try).history(period="5d")
-            if df_try is not None and not df_try.empty and len(df_try) >= 2:
+            if df_try is not None and not df_try.empty and len(df_try) >= 1:
                 was_fixed = (ticker_try != raw)
                 msg = f"Auto-detected as **{ticker_try}** ({market}) ✅" if was_fixed else ""
                 return ticker_try, was_fixed, msg
